@@ -5,8 +5,43 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Code Quiz</title>
+    <link rel='stylesheet' href="./assets/style.css"
 </head>
+
 <body>
-    
+    <section id="start-screen">
+        <div class="x-axis">
+            <div class="y-axis" id="view-hs">
+                <a onclick="displayScores
+            </div>
+            <div class="y-axis" id="intro">
+                <h1>Coding Quiz!</h1>
+                <br>
+                <button id="start-btn">Start</button>
+            </div>
+            <div class="y-axis" id="timer"
+                <b>Time Remaining: </b>
+                <p id="seconds">20</p>
+        <div id="quiz" style="display: none">
+         <div id="question"></div>
+            <div id="choices">
+                <div class="userSelection" id="A" onclick="checkAnswer('A')"></div>
+                <div class="userSelection" id="B" onclick="checkAnswer('B')"></div>
+                <div class="userSelection" id="C" onclick="checkAnswer('C')"></div>
+                <div class="userSelection" id="D" onclick="checkAnswer('D')"></div>
+            </div>
+            <div id="timer">
+                <div id="counter"></div>
+                <div id="backgroundTimerGauge"></div>
+                <div id="timeGauge"></div>
+            </div>
+            <div id="progress"></div>
+        </div>
+        </div>
+        <div id="scoreContainer" style="display: none"></div>
+
+    </section>
+
+    <script src="./assets/script.js"></script>
 </body>
 </html>
