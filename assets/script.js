@@ -1,16 +1,16 @@
 
-// Global Var
-var start = document.getElementById("start");
-var quiz = document.getElementById("quiz");
-var question = document.getElementById("question");
-var choiceA = document.getElementById("A");
-var choiceB = document.getElementById("B");
-var choiceC = document.getElementById("C");
-var choiceD = document.getElementById("D");
-var counter = document.getElementById("counter");
-var timeGauge = document.getElementById("backgroundTimerGauge");
-var progress = document.getElementById("progress");
-var scoreDiv = document.getElementById("scoreContainer");
+// // Global Var
+// var start = document.getElementById("start");
+// var quiz = document.getElementById("quiz");
+// var question = document.getElementById("question");
+// var choiceA = document.getElementById("A");
+// var choiceB = document.getElementById("B");
+// var choiceC = document.getElementById("C");
+// var choiceD = document.getElementById("D");
+// var counter = document.getElementById("counter");
+// var timeGauge = document.getElementById("backgroundTimerGauge");
+// var progress = document.getElementById("progress");
+// var scoreDiv = document.getElementById("scoreContainer");
 
 var question = [
     {
@@ -63,92 +63,92 @@ var question = [
         correctAnswer: 'stringify()'
     },
 ]
-//Varibales for question length, init question nuber an question count, 
-// create some variables
+// //Varibales for question length, init question nuber an question count, 
+// // create some variables
 
-var lastQuestion = question.length - 1;
-let runningQuestion = 0;
-let count = 0;
-var questionTime = 10; // 10s
-var gaugeWidth = 150; // 150px
-var gaugeUnit = gaugeWidth / questionTime;
-let TIMER;
-let score = 0;
+// var lastQuestion = question.length - 1;
+// let runningQuestion = 0;
+// let count = 0;
+// var questionTime = 10; // 10s
+// var gaugeWidth = 150; // 150px
+// var gaugeUnit = gaugeWidth / questionTime;
+// let TIMER;
+// let score = 0;
 
-// render a question
-function renderQuestion(){
-    let q = question[runningQuestion];
+// // render a question
+// function renderQuestion(){
+//     let q = question[runningQuestion];
     
-    question.innerHTML = "<p>"+ q.question +"</p>";
-    choiceA.innerHTML = q.choiceA;
-    choiceB.innerHTML = q.choiceB;
-    choiceC.innerHTML = q.choiceC;
-    choiceD.innerHTML = q.choiceD;
-}
+//     question.innerHTML = "<p>"+ q.question +"</p>";
+//     choiceA.innerHTML = q.choiceA;
+//     choiceB.innerHTML = q.choiceB;
+//     choiceC.innerHTML = q.choiceC;
+//     choiceD.innerHTML = q.choiceD;
+// }
 
 
-// start quiz
-function startQuiz(){
-    start.style.display = "none";
-    renderQuestion();
-    quiz.style.display = "block";
-    renderProgress();
-    renderCounter();
-    TIMER = setInterval(renderCounter,1000); // 1000ms = 1s
-}
+// // start quiz
+// function startQuiz(){
+//     start.style.display = "none";
+//     renderQuestion();
+//     quiz.style.display = "block";
+//     renderProgress();
+//     renderCounter();
+//     TIMER = setInterval(renderCounter,1000); // 1000ms = 1s
+// }
 
-// render progress
-function renderProgress(){
-    for(let qIndex = 0; qIndex <= lastQuestion; qIndex++){
-        progress.innerHTML += "<div class='prog' id="+ qIndex +"></div>";
-    }
-}
+// // render progress
+// function renderProgress(){
+//     for(let qIndex = 0; qIndex <= lastQuestion; qIndex++){
+//         progress.innerHTML += "<div class='prog' id="+ qIndex +"></div>";
+//     }
+// }
 
-// counter render
+// // counter render
 
-function renderCounter(){
-    if(count <= questionTime){
-        counter.innerHTML = count;
-        timeGauge.style.width = count * gaugeUnit + "px";
-        count++
-    }else{
-        count = 0;
-        // change progress color to red
-        answerIsWrong();
-        if(runningQuestion < lastQuestion){
-            runningQuestion++;
-            renderQuestion();
-        }else{
-            // end the quiz and show the score
-            clearInterval(TIMER);
-            scoreRender();
-        }
-    }
-}
+// function renderCounter(){
+//     if(count <= questionTime){
+//         counter.innerHTML = count;
+//         timeGauge.style.width = count * gaugeUnit + "px";
+//         count++
+//     }else{
+//         count = 0;
+//         // change progress color to red
+//         answerIsWrong();
+//         if(runningQuestion < lastQuestion){
+//             runningQuestion++;
+//             renderQuestion();
+//         }else{
+//             // end the quiz and show the score
+//             clearInterval(TIMER);
+//             scoreRender();
+//         }
+//     }
+// }
 
-// checkAnwer
+// // checkAnwer
 
-function checkAnswer(answer){
-    if( answer == questions[runningQuestion].correct){
-        // answer is correct
-        score++;
-        // change progress color to green
-        answerIsCorrect();
-    }else{
-        // answer is wrong
-        // change progress color to red
-        answerIsWrong();
-    }
-    count = 0;
-    if(runningQuestion < lastQuestion){
-        runningQuestion++;
-        renderQuestion();
-    }else{
-        // end the quiz and show the score
-        clearInterval(TIMER);
-        scoreRender();
-    }
-}
+// function checkAnswer(answer){
+//     if( answer == questions[runningQuestion].correct){
+//         // answer is correct
+//         score++;
+//         // change progress color to green
+//         answerIsCorrect();
+//     }else{
+//         // answer is wrong
+//         // change progress color to red
+//         answerIsWrong();
+//     }
+//     count = 0;
+//     if(runningQuestion < lastQuestion){
+//         runningQuestion++;
+//         renderQuestion();
+//     }else{
+//         // end the quiz and show the score
+//         clearInterval(TIMER);
+//         scoreRender();
+//     }
+// }
 
 // answer is correct
 
